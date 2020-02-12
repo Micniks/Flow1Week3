@@ -17,15 +17,15 @@ README setup follow guide from https://docs.google.com/document/d/1nWjxWLepoW1-Y
 
 ## Tuesday
 -----
-1. 
-2. 
-3. 
+1. Finished all tests
+2. In the ExerciseStartCodeClone file, under test package in the rest package.
+3. Rest-point tests
 
 ## Wednesday
 -----
-1. 
-2. 
-3. 
+1. Finished all except the Red part 'Reusable Modules with Closures'
+2. Both in the same project, the assignment doc. The JavaScript Array was solved in the class JavaScriptArray, and the other document in the class JavaScriptDay1
+3. JavaScript
 
 ## Thursday
 -----
