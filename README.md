@@ -31,7 +31,7 @@ README setup follow guide from https://docs.google.com/document/d/1nWjxWLepoW1-Y
 -----
 1. 
 2. 
-3. 
+3. JavaScript, DOM
 
 ## Friday
 -----

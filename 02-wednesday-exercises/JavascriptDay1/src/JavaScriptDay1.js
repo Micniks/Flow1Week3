@@ -352,12 +352,12 @@ line();
 //Assignment 2
 assignmentHeader("2");
 
-function NewPerson(firstName, lastName, age){
+function NewPerson(firstName, lastName, age) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.age = age;
-    this.getDetails = function(){
-      return this.firstName + " " + lastName + ", age " + age;  
+    this.getDetails = function () {
+        return this.firstName + " " + lastName + ", age " + age;
     };
 }
 
@@ -372,9 +372,106 @@ assignmentSectionHeader("Reusable Modules with Closures");
 //Assignment 1
 assignmentHeader("1");
 
+var makeCounter = function () {
+    var privateCounter = 0;
+    function changeBy(val) {
+        privateCounter += val;
+    }
+    return {
+        increment: function () {
+            changeBy(1);
+        },
+        decrement: function () {
+            changeBy(-1);
+        },
+        value: function () {
+            return privateCounter;
+        }
+    };
+};
+var counter1 = makeCounter();
+var counter2 = makeCounter();
+
+//Test
+line();
+p("Testing here");
+p("Increasing Counter1");
+counter1.increment();
+p("Counter1 increased");
+counter1.increment();
+p("Counter1 increased");
+counter1.increment();
+p("Counter1 increased");
+line();
+
+p("Increasing Counter2");
+p("Counter2 increased");
+counter2.increment();
+p("Counter2 increased");
+counter2.increment();
+p("Counter2 increased");
+counter2.increment();
+p("Counter2 increased");
+counter2.increment();
+line();
+
+p("Current values of each counter should be:");
+p("Current1: Expected 3 Actual " + counter1.value());
+p("Current2: Expected 4, Actual " + counter2.value());
+line();
+
+p("Decrease value of Counter1");
+p("Counter1 decreased");
+counter1.decrement();
+line();
+
+p("Decrease value of Counter2");
+p("Counter2 decreased");
+counter2.decrement();
+p("Counter2 decreased");
+counter2.decrement();
+p("Counter2 decreased");
+counter2.decrement();
+line();
+
+p("Current values of each counter should be:");
+p("Current1: Expected 2, Actual " + counter1.value());
+p("Current2: Expected 1, Actual " + counter2.value());
+line();
 
 //Assignment 2
 assignmentHeader("2");
+
+var lastPerson = function () {
+    var privateName = "";
+    var privateAge = 0;
+    function setName(name) {
+        privateName = name;
+    }
+    function setAge(n) {
+        privateAge = n;
+    }
+    return{
+        setName: function (newName) {
+            setName(newName);
+        },
+        setAge: function (newAge) {
+            setAge(newAge);
+        },
+        getInfo: function () {
+            return privateName + " " + privateAge;
+        }
+    };
+};
+
+var peter = lastPerson();
+var frank = lastPerson();
+peter.setName("Peter");
+peter.setAge(45);
+frank.setName("Frank");
+frank.setAge(23);
+p(peter.getInfo());
+p(frank.getInfo());
 
 
 line();
