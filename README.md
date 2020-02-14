@@ -9,6 +9,17 @@ README setup follow guide from https://docs.google.com/document/d/1nWjxWLepoW1-Y
 
 *3. Which of the weekly learnings goals were covered by your solution*
 
+**IMPORTENT NOTE:**
+
+Links to the 3 projects for monday and tuesday can be found here, and in the readme file under the 01-monday-and-tuesday folder
+
+travisGettingStarted repository: https://github.com/Micniks/travisGettingStarted
+
+rest-jpa-devops-startcode repository: https://github.com/Micniks/startCode
+
+(Movie) ExerciseStartCodeClone repository: https://github.com/Micniks/RepeatStartCode
+
+
 ## Monday
 -----
 1. Finished part 1, 2.1 & 2.2, waiting with part 2.3 as guided.
