@@ -23,18 +23,18 @@ README setup follow guide from https://docs.google.com/document/d/1nWjxWLepoW1-Y
 
 ## Wednesday
 -----
-1. Finished all except the Red part 'Reusable Modules with Closures'
+1. Finished all except 'All of it', which does not seem to be part of the current assignment
 2. Both in the same project, the assignment doc. The JavaScript Array was solved in the class JavaScriptArray, and the other document in the class JavaScriptDay1
 3. JavaScript
 
 ## Thursday
 -----
-1. 
-2. 
+1. Finished all, with the last assignment choosing to go with the Chuck Norris API
+2. In the project thursdayExercises, all parts can be navigated to from the index site and pack if run, and each assignment is in it's own html page, with the script in the page as well.
 3. JavaScript, DOM
 
 ## Friday
 -----
-1. 
-2. 
-3. 
+1. Finished
+2. In the 01-monday-and-tuesday-exercises, updated the ExerciseStartCodeClone to include the relevent parts
+3. JavaScript, DOM, Fetching
