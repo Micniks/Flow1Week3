@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <style>
+            .mydiv {width: 25px; height: 25px; background-color:yellow; margin:1px; float: left; margin-left: 20px}
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <h1 align='center'>Event Bubbling and event arguments</h1>
+
+        <div id='outer' style='margin: auto; width: 552px;'>
+            <div id='sacrifice' class='mydiv'></div>
+            <div id='god' class='mydiv'></div>
+            <div id='goat' class='mydiv'></div>
+            <div id='lamb' class='mydiv'></div>
+            <div id='monkey' class='mydiv'></div>
+            <div id='dragon' class='mydiv'></div>
+            <div id='oscar' class='mydiv'></div>
+            <div id='michael' class='mydiv'></div>
+            <div id='andreas' class='mydiv'></div>
+            <div id='benjamin' class='mydiv'></div>
+            <div id='alex' class='mydiv'></div>
+            <div id='lars' class='mydiv'></div>
+        </div>
+        <br>
+        <br>
+        <p id='text' align='center'></p>
+        <br>
+        <br>
+        <p align='center'><a href="index.html">Go Back</a></p>
+
+        <script>
+            document.getElementById('outer').onclick = msg;
+
+            function msg(evt) {
+                const id = evt.target.id;
+                document.getElementById("text").innerHTML = "Hello from " + id +
+                        "<br> This: " + this.id + "<br> Target: " + id;
+                //console.log("Hello from " + id);
+                //console.log("This: " + this.id);
+                //console.log("Target: " + id);
+            }
+
+        </script>
+    </body>
+</html>

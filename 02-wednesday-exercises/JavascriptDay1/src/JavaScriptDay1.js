@@ -198,7 +198,9 @@ assignmentHeader("4a");
 
 //This code is really ugly, but I could not find a good way to get the values out of each object car with map or join
 var sqlInsertCars = function (cars) {
-    var result = "INSERT INTO cars (id,year,make,model,price) VALUES ";
+    var result = "INSERT INTO cars (";
+    result += Object.getOwnPropertyNames(cars[0]).join();
+    result += ") VALUES ";
     cars.forEach(function (car) {
         result += "(";
         for (const[key, value] of Object.entries(car)) {

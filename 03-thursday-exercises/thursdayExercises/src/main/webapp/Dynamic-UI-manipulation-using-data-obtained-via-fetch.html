@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1 align='center'>Dynamic UI manipulation using data obtained via fetch</h1>
+        <br>
+        <div style="margin: auto; width: 20%">
+            <form>
+                <input type="text" name="name" value="" id='textField'/><br><input type="submit" value="Get Random From CategoryCategory" id='buttonCategory'/>
+                <input type="submit" value="Get List" id='buttonAll'/><input type="submit" value="Get Random" id='button'/><br>
+            </form>
+        </div>
+        <br>
+        <p id="result" align="center"></p>
+
+        <br>
+        <br>
+        <p align='center'><a href="index.html">Go Back</a></p>
+
+        <script>
+            function getRandom(evt) {
+            evt.preventDefault();
+            let url = "https://api.chucknorris.io/jokes/random";
+            fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                    console.log("data", data);
+                    document.getElementById("result").innerHTML = "<br>" + data.value;
+                    });
+            document.getElementById("textField").value = "";
+            }
+
+            function getList(evt) {
+            evt.preventDefault();
+            let url = "https://api.chucknorris.io/jokes/categories";
+            fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                    console.log("data", data);
+                    var result = "Chuck Norris Categories!<br><ul>";
+                    for (const[key, value] of Object.entries(data)) {
+                    result += "<li>" + value + "</li>";
+                    }
+                    ;
+                    result += "</ul>";
+                    document.getElementById("result").innerHTML = result;
+                    });
+            document.getElementById("textField").value = "";
+            }
+
+            function getCategory(evt) {
+            evt.preventDefault();
+            let url = "https://api.chucknorris.io/jokes/random?category=" +
+                    document.getElementById("textField").value.toString().toLowerCase();
+            fetch(url)
+                    .then(res => res.json())
+                    .then(data => {
+                    console.log("data", data);
+                    if (data.value == null){
+                        document.getElementById("result").innerHTML = "<br>" + "That's not one of the Chuck Norris Categories!";
+                    } else{
+                        document.getElementById("result").innerHTML = "<br>" + data.value;
+                    }
+                    });
+            document.getElementById("textField").value = "";
+            }
+
+            document.getElementById('button').addEventListener("click", getRandom);
+            document.getElementById('buttonAll').addEventListener("click", getList);
+            document.getElementById('buttonCategory').addEventListener("click", getCategory);
+
+        </script>
+    </body>
+</html>

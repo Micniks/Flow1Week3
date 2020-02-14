@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <style>
+            #container{
+                width: 226px;
+                height: 274px;
+                border: 3px solid darkblue;
+                margin: auto
+            }
+            .t1, .t4{
+                border: 1px solid black;
+                height: 48px;
+                margin-left: 3px;
+                margin-top: 3px;
+                display: inline-block;
+                text-align: center;
+                line-height: 48px;
+            }
+            .t1{
+                width: 48px;
+            }
+            .t4{
+                width: 219px;
+            }
+
+        </style>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1 align="center">Implement a simple calculator</h1>
+        <div id="container">
+            <div id="display" class="t4"></div>
+            <div id="buttons">
+                <div class="t1">7</div>
+                <div class="t1">8</div>
+                <div class="t1">9</div>
+                <div class="t1">/</div>
+
+                <div class="t1">4</div>
+                <div class="t1">5</div>
+                <div class="t1">6</div>
+                <div class="t1">*</div>
+
+                <div class="t1">1</div>
+                <div class="t1">2</div>
+                <div class="t1">3</div>
+                <div class="t1">-</div>
+
+                <div class="t1">0</div>
+                <div class="t1">.</div>
+                <div class="t1">+</div>
+                <div id="calculate" class="t1">=</div>
+            </div>
+        </div>
+
+
+        <br>
+        <br>
+        <p align='center'><a href="index.html">Go Back</a></p>
+
+
+        <script>
+
+            document.getElementById('buttons').onclick = press;
+            document.getElementById('calculate').onclick = calculate;
+            var nextPressClear = false;
+
+            function press(evt) {
+                if (evt.target.id !== "calculate" && evt.target.id !== "buttons") {
+                    if(nextPressClear){
+                        document.getElementById("display").innerHTML = "";
+                        nextPressClear = false;
+                    }
+                    var value = evt.target.innerHTML;
+                    document.getElementById("display").innerHTML += value;
+                }
+            }
+
+            function calculate(evt) {
+                evt.stopPropagation();
+                const str = document.getElementById("display").innerHTML;
+                var n1, n2, n, result;
+                console.log(str);
+                if (str.indexOf("+") > -1) {
+                    n = str.split("+");
+                    n1 = Number(n[0]);
+                    n2 = Number(n[1]);
+                    result = n1 + n2;
+                } else if (str.indexOf("-") > -1) {
+                    n = str.split("-");
+                    n1 = Number(n[0]);
+                    n2 = Number(n[1]);
+                    result = n1 - n2;
+                } else if (str.indexOf("*") > -1) {
+                    n = str.split("*");
+                    n1 = Number(n[0]);
+                    n2 = Number(n[1]);
+                    result = n1 * n2;
+                } else if (str.indexOf("/") > -1) {
+                    n = str.split("/");
+                    n1 = Number(n[0]);
+                    n2 = Number(n[1]);
+                    result = n1 / n2;
+                }
+                console.log("n1 = " + n1);
+                console.log("n2 = " + n2);
+                document.getElementById("display").innerHTML = result;
+                nextPressClear = true;
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1 align="center">Simple DOM manipulation and Event handling</h1>
+        <div id='First' align='center'>
+            <p>Hello from First</p>
+        </div>
+        <br>
+        <div id='Second' align='center'>
+            <p>Hello from Second</p>
+        </div>
+        <br>
+        <div id='Third' align='center'>
+            <p>Hello from Third</p>
+        </div>
+
+        <div align='center'>
+            <button onclick="changeColors()">Click for color changes!</button>
+        </div>
+
+        <br>
+        <br>
+        <p align='center'><a href="index.html">Go Back</a></p>
+        
+        <script>
+            //Simple DOM manipulation and Event handling
+
+            //Assignment A
+            var divs = Array.from(document.getElementsByTagName("DIV"));
+            divs.forEach(function (element) {
+                element.style.backgroundColor = "pink";
+            });
+
+            //Assignment B
+            function changeColors() {
+                document.getElementById("First").style.backgroundColor = "yellow";
+                document.getElementById("Second").style.backgroundColor = "green";
+                document.getElementById("Third").style.backgroundColor = "blue";
+            }
+        </script>
+    </body>
+</html>

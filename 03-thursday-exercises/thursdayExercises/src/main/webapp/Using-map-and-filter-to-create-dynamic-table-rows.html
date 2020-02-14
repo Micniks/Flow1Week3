@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <style>
+            td {
+                border-top: 1px solid gray;
+                padding-left: 20px; 
+                border-collapse: collapse;
+            }
+        </style>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initia20scale=1.0">
+    </head>
+    <body>
+        <h1 align="center">Using map and filter to create dynamic table-rows</h1>
+        <br>
+        <p align="center"><i>I will not be using bootstrap for styling the table</i></p>
+        <br>
+        <table id="table" align="center"></table>
+        <br>
+        <p style="color: red" id="error" align="center"></p>
+        <br>
+        <div style="margin: auto; width: 20%">
+            <form>
+                Price: <input type="text" name="name" value="" id='textField'/><input type="submit" value="Price less than" id='button'/><br><br>
+            </form>
+        </div>
+        <br>
+        <br>
+        <p align='center'><a href="index.html">Go Back</a></p>
+
+        <script>
+
+            var cars = [
+                {id: 1, year: 1997, make: 'Ford', model: 'E350', price: 3000},
+                {id: 2, year: 1999, make: 'Chevy', model: 'Venture', price: 4900},
+                {id: 3, year: 2000, make: 'Chevy', model: 'Venture', price: 5000},
+                {id: 4, year: 1996, make: 'Jeep', model: 'Grand Cherokee', price: 4799},
+                {id: 5, year: 2005, make: 'Volvo', model: 'V70', price: 44799}
+            ];
+            var cheapCars = cars.filter(car => car.price < 5000);
+
+            var makeArrayTable = function (cars) {
+                var headers = Object.getOwnPropertyNames(cars[0]);
+                var result = "<tr>";
+                headers.forEach(function (str) {
+                    result += "<th>" + str + "</th>";
+                });
+                result += "</tr>";
+                cars.forEach(function (car) {
+                    result += "<tr>";
+                    for (const[key, value] of Object.entries(car)) {
+                        result += "<td>" + value + "</td>";
+                    }
+                    ;
+                    result = result.substring(0, result.length - 2);
+                    result += "</tr>";
+                });
+                return result;
+            };
+
+            function makeNewArrayTable(evt) {
+                evt.preventDefault();
+                var price = parseInt(document.getElementById("textField").value);
+                if (isNaN(price)) {
+                    document.getElementById("error").innerHTML = "ERROR: Input a number";
+                } else {
+                    var newCars = cars.filter(car => car.price < price);
+                    if (newCars.length > 0) {
+                        document.getElementById("table").innerHTML = makeArrayTable(newCars);
+                        document.getElementById("error").innerHTML = "";
+                    } else {
+                        document.getElementById("error").innerHTML = "ERROR: No cars available at the given price point";
+                    }
+
+                }
+                document.getElementById("textField").value = "";
+            }
+
+            document.getElementById("table").innerHTML = makeArrayTable(cars);
+            document.getElementById('button').addEventListener("click", makeNewArrayTable);
+
+        </script>
+    </body>
+</html>
